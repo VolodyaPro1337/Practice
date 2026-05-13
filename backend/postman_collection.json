@@ -1,0 +1,652 @@
+{
+	"info": {
+		"_postman_id": "kretmann-roskarniz-api",
+		"name": "Kretmann & Roskarniz API",
+		"description": "API для веб-проекта Kretmann & Roskarniz — архитектурные солнцезащитные системы и автоматизация интерьера",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "List Categories",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": ["{{base_url}}"],
+							"path": ["api", "categories"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "categories", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Новая Категория\",\n\t\"slug\": \"new-category\",\n\t\"description\": \"Описание категории\",\n\t\"sort_order\": 5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": ["{{base_url}}"],
+							"path": ["api", "categories"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Обновленная Категория\",\n\t\"description\": \"Новое описание\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "categories", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/categories/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "categories", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "List Products",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Products by Category",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/products?category_id=1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products"],
+							"query": [{"key": "category_id", "value": "1"}]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/products/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"category_id\": 1,\n\t\"name\": \"Новый Продукт\",\n\t\"slug\": \"new-product\",\n\t\"description\": \"Описание продукта\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Обновленный Продукт\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/products/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "products", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profiles (Configurator Step 1)",
+			"item": [
+				{
+					"name": "List Profiles",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/profiles",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/profiles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profiles", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Новый Профиль\",\n\t\"slug\": \"new-profile\",\n\t\"description\": \"Описание профиля\",\n\t\"max_span_mm\": 7000,\n\t\"tags\": [\"Новый Тег\"],\n\t\"sort_order\": 4\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/profiles",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profiles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Обновленный Профиль\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/profiles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profiles", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/profiles/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "profiles", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materials (Configurator Step 3)",
+			"item": [
+				{
+					"name": "List Materials",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/materials",
+							"host": ["{{base_url}}"],
+							"path": ["api", "materials"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Material",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/materials/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "materials", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Material",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Silver Metallic\",\n\t\"slug\": \"silver-metallic\",\n\t\"hex_color\": \"#c0c0c0\",\n\t\"description\": \"Серебристый металлик\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/materials",
+							"host": ["{{base_url}}"],
+							"path": ["api", "materials"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Material",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Обновленный Материал\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/materials/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "materials", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Material",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/materials/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "materials", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Automation Options (Configurator Step 4)",
+			"item": [
+				{
+					"name": "List Automation Options",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/automation-options",
+							"host": ["{{base_url}}"],
+							"path": ["api", "automation-options"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Automation Option",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/automation-options/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "automation-options", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Automation Option",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Голосовое Управление\",\n\t\"slug\": \"voice-control\",\n\t\"description\": \"Управление голосом через Alexa / Siri\",\n\t\"subtitle\": \"Интеграция Alexa / Siri\",\n\t\"icon\": \"mic\",\n\t\"sort_order\": 4\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/automation-options",
+							"host": ["{{base_url}}"],
+							"path": ["api", "automation-options"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Automation Option",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Обновленная Опция\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/automation-options/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "automation-options", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Automation Option",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/automation-options/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "automation-options", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configurations",
+			"item": [
+				{
+					"name": "List Configurations",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/configurations",
+							"host": ["{{base_url}}"],
+							"path": ["api", "configurations"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configuration",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/configurations/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "configurations", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Configuration (Full)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"profile_id\": 1,\n\t\"width_mm\": 3000,\n\t\"height_mm\": 2500,\n\t\"material_id\": 1,\n\t\"automation_options\": [\n\t\t{\"id\": 1, \"is_enabled\": true},\n\t\t{\"id\": 2, \"is_enabled\": false},\n\t\t{\"id\": 3, \"is_enabled\": true}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/configurations",
+							"host": ["{{base_url}}"],
+							"path": ["api", "configurations"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Configuration",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"width_mm\": 4500,\n\t\"height_mm\": 3000,\n\t\"automation_options\": [\n\t\t{\"id\": 1, \"is_enabled\": true},\n\t\t{\"id\": 2, \"is_enabled\": true},\n\t\t{\"id\": 3, \"is_enabled\": true}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/configurations/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "configurations", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Configuration",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/configurations/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "configurations", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "List Orders",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Orders by Status",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/orders?status=new",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"],
+							"query": [{"key": "status", "value": "new"}]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "GET",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order (with existing config)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"configuration_id\": 1,\n\t\"client_name\": \"Ричард Мейер\",\n\t\"client_phone\": \"+7 (999) 123-45-67\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order (with embedded config)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"client_name\": \"Анна Мюллер\",\n\t\"client_phone\": \"+49 170 9876543\",\n\t\"profile_id\": 2,\n\t\"width_mm\": 5000,\n\t\"height_mm\": 2800,\n\t\"material_id\": 3,\n\t\"automation_options\": [\n\t\t{\"id\": 1, \"is_enabled\": true},\n\t\t{\"id\": 2, \"is_enabled\": true},\n\t\t{\"id\": 3, \"is_enabled\": false}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Accept", "value": "application/json"},
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"processing\",\n\t\"admin_note\": \"Клиент подтвердил спецификацию\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [{"key": "Accept", "value": "application/json"}],
+						"url": {
+							"raw": "{{base_url}}/api/orders/1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "orders", "1"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}

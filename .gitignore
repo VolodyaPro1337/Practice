@@ -1,0 +1,56 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies and build output
+node_modules/
+backend/vendor/
+dist/
+dist-ssr
+backend/public/build/
+backend/public/hot
+output/
+*.doc
+*.docx
+extract.cjs
+fill_practice_docs.py
+relevance_map.html
+
+# Environment, secrets and local databases
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+*.local
+*.key
+auth.json
+backend/auth.json
+backend/database/*.sqlite
+backend/storage/*.key
+
+# Runtime and caches
+tmp/
+.playwright-cli/
+backend/.phpunit.cache/
+backend/.phpunit.result.cache
+backend/storage/framework/cache/data/*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+~$*.docx
